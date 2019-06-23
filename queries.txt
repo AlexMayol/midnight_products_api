@@ -1,0 +1,41 @@
+CREATE TABLE products(
+    id        serial PRIMARY KEY,
+    category serial references categories(id),
+    name       char(150) NULL,
+    en_description       char(500) NULL,
+    es_description       char(500) NULL,
+    de_description       char(500) NULL,
+    price       decimal(10) NULL,
+    image       char(300) NULL
+);
+
+
+INSERT INTO products (category, name, en_description, es_description, de_description, price, image)
+    VALUES (1, 'Yojimbo', 'A Final Fantasy summon', 'Una invocación de Final Fantasy', 'Nais whuuat', 9282, 'https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fstatic1.wikia.nocookie.net%2F__cb20121111172060%2Ffinalfantasy%2Fimages%2F3%2F39%2FYojimbo-FFX-render.png&f=1');
+
+
+CREATE TABLE categories(
+    id        serial PRIMARY KEY,
+    name       char(50) NULL,
+    description       char(150) NULL,
+    image       char(200) NULL
+);
+
+
+CREATE TABLE colors (
+    id        serial PRIMARY KEY,
+    code       char(20) NULL,
+    label       char(50) NULL
+);
+
+CREATE TABLE product_colors(
+    id        serial PRIMARY KEY,
+    product serial references products(id),
+    color serial references colors(id)
+);
+
+CREATE TABLE product_colors(
+    id        serial PRIMARY KEY,
+    product serial,
+    color serial
+);
