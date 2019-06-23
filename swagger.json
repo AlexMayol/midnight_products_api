@@ -1,0 +1,494 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Midnight CMS API",
+        "description": "Learn how to consume the API in this documentation",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "agile-taiga-40154.herokuapp.com/",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "Colors",
+            "description": "Colors stored on the database"
+        },
+        {
+            "name": "Categories",
+            "description": "Categories stored on the database"
+        },
+        {
+            "name": "Products",
+            "description": "Products stored on the database"
+        }
+    ],
+    "schemes": [
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "colors": {
+            "post": {
+                "tags": [
+                    "Colors"
+                ],
+                "summary": "Creates new color in the database",
+                "description": "Creates new color in the database",
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "body",
+                        "description": "Code of the color (hex, rgba, hlsa...)"
+                    },
+                    {
+                        "name": "label",
+                        "in": "body",
+                        "description": "Name of the color"
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "Colors"
+                ],
+                "description": "Gets all the colors in the database",
+                "summary": "Gets all the colors in the database",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Colors"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Colors"
+                ],
+                "description": "Deletes all the colors in the database",
+                "summary": "Deletes all the colors in the database",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Colors"
+                        }
+                    }
+                }
+            }
+        },
+        "color/{colorId}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID of user color",
+                    "type": "string"
+                }
+            ],
+            "put": {
+                "tags": [
+                    "Colors"
+                ],
+                "summary": "Updates the color with the given ID",
+                "responses": {
+                    "200": {
+                        "description": "Color is updated",
+                        "schema": {
+                            "$ref": "#/definitions/Color"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "body",
+                        "description": "Code of the color (hex, rgba, hlsa...)",
+                        "type": "string"
+                    },
+                    {
+                        "name": "label",
+                        "in": "body",
+                        "description": "Name of the color",
+                        "type": "string"
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Colors"
+                ],
+                "summary": "Deletes the color with the given ID",
+                "responses": {
+                    "200": {
+                        "description": "Color is deleted",
+                        "schema": {
+                            "$ref": "#/definitions/Color"
+                        }
+                    }
+                }
+            }
+        },
+        "categories": {
+            "post": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Creates a new category in the database",
+                "description": "Creates a new category in the database",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "body",
+                        "description": "Name of the category"
+                    },
+                    {
+                        "name": "description",
+                        "in": "body",
+                        "description": "Description of the category"
+                    },
+                    {
+                        "name": "image",
+                        "in": "body",
+                        "description": "Image of the category"
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "Categories"
+                ],
+                "description": "Gets all the categories in the database",
+                "summary": "Gets all the categories in the database",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Categories"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Categories"
+                ],
+                "description": "Deletes all the categories in the database",
+                "summary": "Deletes all the categories in the database",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Categories"
+                        }
+                    }
+                }
+            }
+        },
+        "categories/{categoryId}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID of the category",
+                    "type": "string"
+                }
+            ],
+            "put": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Updates the category with the given ID",
+                "responses": {
+                    "200": {
+                        "description": "Category is updated",
+                        "schema": {
+                            "$ref": "#/definitions/Color"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "body",
+                        "description": "Name of the category",
+                        "type": "string"
+                    },
+                    {
+                        "name": "description",
+                        "in": "body",
+                        "description": "Description of the category",
+                        "type": "string"
+                    },
+                    {
+                        "name": "image",
+                        "in": "body",
+                        "description": "Image of the category",
+                        "type": "string"
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Deletes the category with the given ID",
+                "responses": {
+                    "200": {
+                        "description": "Category is deleted",
+                        "schema": {
+                            "$ref": "#/definitions/Categories"
+                        }
+                    }
+                }
+            }
+        },
+        "/products": {
+            "post": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Creates a new product in the database",
+                "description": "Creates a new product in the database",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "body",
+                        "description": "Name of the product"
+                    },
+                    {
+                        "name": "en_description",
+                        "in": "body",
+                        "description": "English description of the product"
+                    },
+                    {
+                        "name": "es_description",
+                        "in": "body",
+                        "description": "Spanish description of the product"
+                    },
+                    {
+                        "name": "de_description",
+                        "in": "body",
+                        "description": "German description of the product"
+                    },
+                    {
+                        "name": "image",
+                        "in": "body",
+                        "description": "Image of the product"
+                    },
+                    {
+                        "name": "category",
+                        "in": "body",
+                        "description": "Category of the product"
+                    },
+                    {
+                        "name": "colors",
+                        "in": "body",
+                        "description": "Colors of the product (zero or more)"
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "description": "Get all the products in the database",
+                "summary": "Get all the products in the database",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Products"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Products"
+                ],
+                "description": "Deletes all the products in the database",
+                "summary": "Deletes all the products in the database",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Products"
+                        }
+                    }
+                }
+            }
+        },
+        "product/{productId}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID of the product",
+                    "type": "string"
+                }
+            ],
+            "put": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Updates the product with the given ID",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "body",
+                        "description": "Name of the product",
+                        "type": "string"
+                    },
+                    {
+                        "name": "en_description",
+                        "in": "body",
+                        "description": "English description of the product",
+                        "type": "string"
+                    },
+                    {
+                        "name": "es_description",
+                        "in": "body",
+                        "description": "Spanish description of the product",
+                        "type": "string"
+                    },
+                    {
+                        "name": "de_description",
+                        "in": "body",
+                        "description": "German description of the product",
+                        "type": "string"
+                    },
+                    {
+                        "name": "image",
+                        "in": "body",
+                        "description": "Image of the product",
+                        "type": "string"
+                    },
+                    {
+                        "name": "category",
+                        "in": "body",
+                        "description": "Category of the product",
+                        "type": "string"
+                    },
+                    {
+                        "name": "colors",
+                        "in": "body",
+                        "description": "Colors of the product (zero or more)",
+                        "type": "array"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Product is updated",
+                        "schema": {
+                            "$ref": "#/definitions/Products"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Deletes the category with the given ID",
+                "responses": {
+                    "200": {
+                        "description": "Category is deleted",
+                        "schema": {
+                            "$ref": "#/definitions/Products"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Product": {
+            "required": [
+                "name",
+                "price",
+                "price",
+                "en_description",
+                "es_description",
+                "de_description",
+                "category"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "en_description": {
+                    "type": "string"
+                },
+                "es_description": {
+                    "type": "string"
+                },
+                "de_description": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string"
+                },
+                "color": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "uniqueItems": true
+                }
+            }
+        },
+        "Category": {
+            "required": [
+                "name",
+                "description"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                }
+            }
+        },
+        "Color": {
+            "required": [
+                "code",
+                "label"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

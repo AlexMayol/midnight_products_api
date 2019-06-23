@@ -3,6 +3,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const swaggerUi = require('swagger-ui-express'),  swaggerDocument = require('./swagger.json');
 const app = express()
 const port = 4000
 
@@ -10,6 +11,8 @@ const ColorController = require('./controllers/colors');
 const CategoryController = require('./controllers/categories');
 const ProductController = require('./controllers/products');
 
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(bodyParser.json())
 app.use(
     bodyParser.urlencoded({
