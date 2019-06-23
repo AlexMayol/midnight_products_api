@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const swaggerUi = require('swagger-ui-express'),  swaggerDocument = require('./swagger.json');
 const app = express()
-const port = 4000
+const port = process.env.PORT || 4000
 
 const ColorController = require('./controllers/colors');
 const CategoryController = require('./controllers/categories');
